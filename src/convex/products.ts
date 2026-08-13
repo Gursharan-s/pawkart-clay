@@ -229,15 +229,23 @@ export const count = query({
  * catalog version bumps. Safe to call from the client on first load.
  */
 export const seed = mutation({
-  args: {},
-  handler: async (ctx) => {
+  args: {
+    /** Force a full re-seed even if the catalog version has not changed. */
+    force: v.optional(v.boolean()),
+  },
+  handler: async (ctx, args) => {
     const meta = await ctx.db
       .query("seedMeta")
       .withIndex("by_key", (q) => q.eq("key", "catalog"))
       .first();
 
     const current = (await ctx.db.query("products").collect()).length;
-    if (meta && meta.version >= CATALOG_VERSION && current > 0) {
+    if (
+      !args.force &&
+      meta &&
+      meta.version >= CATALOG_VERSION &&
+      current > 0
+    ) {
       return { seeded: false, count: current };
     }
 

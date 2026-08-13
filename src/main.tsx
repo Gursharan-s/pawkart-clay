@@ -1,6 +1,7 @@
 import '@vly-ai/integrations';
 import { Toaster } from "@/components/ui/sonner";
 import { RequireAuth } from "@/components/RequireAuth";
+import { StoreProvider } from "@/context";
 import { VlyToolbar } from "../vly-toolbar-readonly.tsx";
 import { ConvexAuthProvider } from "@convex-dev/auth/react";
 import { ConvexReactClient } from "convex/react";
@@ -12,14 +13,20 @@ import "./index.css";
 // Lazy load route components for better code splitting
 const Landing = lazy(() => import("./pages/Landing.tsx"));
 const AuthPage = lazy(() => import("./pages/Auth.tsx"));
-const Dashboard = lazy(() => import("./pages/Dashboard.tsx"));
+const Products = lazy(() => import("./pages/Products.tsx"));
+const ProductDetail = lazy(() => import("./pages/ProductDetail.tsx"));
+const Cart = lazy(() => import("./pages/Cart.tsx"));
+const Wishlist = lazy(() => import("./pages/Wishlist.tsx"));
+const Checkout = lazy(() => import("./pages/Checkout.tsx"));
+const Account = lazy(() => import("./pages/Account.tsx"));
 const NotFound = lazy(() => import("./pages/NotFound.tsx"));
+const StoreLayout = lazy(() => import("./layouts/StoreLayout.tsx"));
 
 // Simple loading fallback for route transitions
 function RouteLoading() {
   return (
-    <div className="min-h-screen flex items-center justify-center">
-      <div className="animate-pulse text-muted-foreground">Loading...</div>
+    <div className="min-h-screen flex items-center justify-center bg-clay-cream">
+      <div className="animate-pulse text-clay-ink/50">Loading…</div>
     </div>
   );
 }
@@ -82,8 +89,6 @@ class RootErrorBoundary extends React.Component<
 
 const convex = new ConvexReactClient(import.meta.env.VITE_CONVEX_URL as string);
 
-
-
 function RouteSyncer() {
   const location = useLocation();
   useEffect(() => {
@@ -107,7 +112,6 @@ function RouteSyncer() {
   return null;
 }
 
-
 createRoot(document.getElementById("root")!).render(
   <StrictMode>
     <RootErrorBoundary>
@@ -115,28 +119,44 @@ createRoot(document.getElementById("root")!).render(
         <VlyToolbar />
       </ToolbarErrorBoundary>
       <ConvexAuthProvider client={convex}>
-        <BrowserRouter>
-          <RouteSyncer />
-          <Suspense fallback={<RouteLoading />}>
-            <Routes>
-              <Route path="/" element={<Landing />} />
-              <Route
-                path="/auth"
-                element={<AuthPage redirectAfterAuth="/dashboard" />}
-              />
-              <Route
-                path="/dashboard"
-                element={
-                  <RequireAuth>
-                    <Dashboard />
-                  </RequireAuth>
-                }
-              />
-              <Route path="*" element={<NotFound />} />
-            </Routes>
-          </Suspense>
-        </BrowserRouter>
-        <Toaster />
+        <StoreProvider>
+          <BrowserRouter>
+            <RouteSyncer />
+            <Suspense fallback={<RouteLoading />}>
+              <Routes>
+                <Route element={<StoreLayout />}>
+                  <Route path="/" element={<Landing />} />
+                  <Route path="/products" element={<Products />} />
+                  <Route path="/product/:id" element={<ProductDetail />} />
+                  <Route path="/cart" element={<Cart />} />
+                  <Route path="/wishlist" element={<Wishlist />} />
+                  <Route
+                    path="/checkout"
+                    element={
+                      <RequireAuth>
+                        <Checkout />
+                      </RequireAuth>
+                    }
+                  />
+                  <Route
+                    path="/account"
+                    element={
+                      <RequireAuth>
+                        <Account />
+                      </RequireAuth>
+                    }
+                  />
+                </Route>
+                <Route
+                  path="/auth"
+                  element={<AuthPage redirectAfterAuth="/account" />}
+                />
+                <Route path="*" element={<NotFound />} />
+              </Routes>
+            </Suspense>
+          </BrowserRouter>
+          <Toaster position="top-center" richColors />
+        </StoreProvider>
       </ConvexAuthProvider>
     </RootErrorBoundary>
   </StrictMode>,

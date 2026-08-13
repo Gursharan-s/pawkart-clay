@@ -1,3 +1,76 @@
+# PawKart 🐾 — Everything Your Pet Loves.
+
+A premium Indian pet e-commerce store for dogs and cats, styled with a warm
+**Claymorphism** theme: soft matte pastels, inflated shadows and plush rounded
+surfaces.
+
+## What's built (Version 1)
+
+- **Homepage** — hero, trust strip, shop-by-pet, shop-by-category (12 cards),
+  Best Sellers & New Arrivals carousels, deals, shop-by-concern, combo packs
+  ("Better Together"), pet-parent editorial, testimonials and newsletter.
+- **Catalogue** — 48 realistic products (food, treats, toys, beds, grooming,
+  collars/leashes, litter, carriers…) with real pricing, ratings, reviews,
+  stock, SKUs and verified Pexels imagery.
+- **Products page** (`/products`) — search, category/brand/price/rating/
+  availability filters, 7 sort modes, pagination; filters sync to the URL.
+- **Product detail** (`/product/:id` or `/product/<SKU>`) — gallery,
+  size variants, quantity, add-to-cart / buy-now, wishlist, pincode delivery
+  checker, specs, reviews, related products, frequently-bought-together and a
+  sticky mobile add-to-cart bar.
+- **Cart** (`/cart`) — quantity controls, move-to-wishlist, free-delivery
+  progress bar (₹999 threshold), order summary, recommendations.
+- **Checkout** (`/checkout`, protected) — address → delivery → payment →
+  confirmation with a simulated gateway (UPI / card / COD). Structured so
+  Razorpay can be swapped in later.
+- **Account** (`/account`, protected) — profile, order history with a tracking
+  timeline, wishlist and logout.
+- **Wishlist** (`/wishlist`) — save items, move them to cart.
+- **Search** — live suggestions in the header, full search on `/products`.
+
+Version 1 stores cart, wishlist, recently-viewed and orders in `localStorage`;
+products and auth live in Convex. The service layer
+(`src/services/products.ts`) is the single swap point for a Node.js/Express +
+MongoDB backend in the next version.
+
+## Run it
+
+```bash
+bun install
+bun run dev
+```
+
+The Convex backend runs in a managed sandbox. To regenerate Convex types and
+push functions:
+
+```bash
+bun convex dev --once
+```
+
+To re-seed the sample catalogue into Convex (idempotent; use `force` after
+editing `src/data/products.ts` without bumping the version):
+
+```bash
+bun convex run products:seed '{"force": true}'
+```
+
+## Key folders
+
+```
+src/
+  components/    reusable UI (Header, Footer, ProductCard, carousels…)
+  pages/         Landing, Products, ProductDetail, Cart, Checkout, Account…
+  layouts/       StoreLayout (header + footer shell)
+  hooks/         use-recently-viewed, use-auth
+  services/      products.ts — Convex-backed product API (swap point for REST)
+  context/       cart + wishlist providers (localStorage)
+  data/          products.ts — 48-product catalogue (single source of truth)
+  lib/           format (₹), pincode, catalog content data
+  convex/        schema, product queries + seed, auth
+```
+
+---
+
 ## Overview
 
 This project uses the following tech stack:
@@ -59,10 +132,9 @@ const { isLoading, isAuthenticated, user, signIn, signOut } = useAuth();
 
 ## Protected Routes
 
-The starter `/dashboard` route is protected with `RequireAuth`, which sends
-signed-out users to `/auth?returnTo=<current route>`. Extend that page for the
-product's authenticated experience, and reuse `RequireAuth` when adding another
-protected route.
+The starter `/account` route is protected with `RequireAuth`, which sends
+signed-out users to `/auth?returnTo=<current route>`. Reuse `RequireAuth` when
+adding another protected route.
 
 ## Auth Page
 
@@ -79,7 +151,7 @@ You should also be protecting queries, mutations, and actions at the base level,
 
 ## Adding a redirect after auth
 
-The `/auth` route in `src/main.tsx` redirects to `/dashboard` by default. If the
+The `/auth` route in `src/main.tsx` redirects to `/account` by default. If the
 product's main authenticated route is different, update `redirectAfterAuth` to
 that route. A validated same-origin `returnTo` query parameter takes priority so
 users can resume the protected page they originally requested. Never leave an
