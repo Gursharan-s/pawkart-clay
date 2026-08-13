@@ -117,12 +117,12 @@ function Auth({ redirectAfterAuth }: AuthProps = {}) {
           <Link to="/" className="flex items-center gap-3">
             <img
               src={logo}
-              alt="PawKart"
+              alt="PawKart Clay"
               className="size-14 rounded-2xl clay-surface"
             />
             <span className="flex flex-col items-start leading-none">
               <span className="font-display text-3xl font-bold text-clay-ink">
-                PawKart
+                PawKart <span className="text-clay-orange">Clay</span>
               </span>
               <span className="text-[10px] font-bold uppercase tracking-[0.22em] text-clay-orange">
                 Everything your pet loves

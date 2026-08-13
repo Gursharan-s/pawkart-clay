@@ -251,9 +251,9 @@ function MobileDrawer({
           >
             <div className="flex items-center justify-between border-b border-clay-ink/10 p-4">
               <Link to="/" onClick={onClose} className="flex items-center gap-2">
-                <img src={logo} alt="PawKart" className="size-10 rounded-2xl" />
+                <img src={logo} alt="PawKart Clay" className="size-10 rounded-2xl" />
                 <span className="font-display text-xl font-bold text-clay-ink">
-                  PawKart
+                  PawKart <span className="text-clay-orange">Clay</span>
                 </span>
               </Link>
               <button
@@ -387,12 +387,12 @@ export function Header() {
           <Link to="/" className="flex shrink-0 items-center gap-2.5">
             <img
               src={logo}
-              alt="PawKart"
+              alt="PawKart Clay"
               className="size-11 rounded-2xl clay-surface-sm"
             />
             <span className="hidden flex-col leading-none sm:flex">
               <span className="font-display text-2xl font-bold tracking-tight text-clay-ink">
-                PawKart
+                PawKart <span className="text-clay-orange">Clay</span>
               </span>
               <span className="text-[10px] font-bold uppercase tracking-[0.22em] text-clay-orange">
                 Everything your pet loves

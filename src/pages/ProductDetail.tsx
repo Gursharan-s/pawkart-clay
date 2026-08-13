@@ -36,7 +36,7 @@ const REVIEW_POOL = [
   { name: "Megha Singh", city: "Lucknow", rating: 4, text: "Really good product. Slightly smaller than expected but the quality makes up for it." },
   { name: "Vikram Reddy", city: "Hyderabad", rating: 5, text: "My vet actually recommended this. Both my dogs love it and it's easy to serve." },
   { name: "Ananya Iyer", city: "Chennai", rating: 4, text: "Solid buy. Would love a bigger pack size, but the product itself is great." },
-  { name: "Kabir Malhotra", city: "Chandigarh", rating: 5, text: "Superb quality at this price point. PawKart has become our go-to store." },
+  { name: "Kabir Malhotra", city: "Chandigarh", rating: 5, text: "Superb quality at this price point. PawKart Clay has become our go-to store." },
   { name: "Farah Khan", city: "Bhopal", rating: 4, text: "Good product, arrived well packed. My cat took a couple of days to warm up to it, now she loves it." },
   { name: "Dev Patel", city: "Surat", rating: 5, text: "Honestly impressed. The quality feels premium and the free delivery above ₹999 sealed the deal." },
   { name: "Sana Sheikh", city: "Nagpur", rating: 4, text: "Works as described. Customer support was quick to answer my questions too." },
@@ -413,7 +413,7 @@ export default function ProductDetail() {
             <PincodeChecker />
             <div className="rounded-2xl border border-clay-ink/8 bg-clay-mint/40 p-4">
               <p className="flex items-center gap-1.5 text-sm font-extrabold text-clay-ink">
-                <ShieldCheck className="size-4 text-clay-green" /> PawKart Promise
+                <ShieldCheck className="size-4 text-clay-green" /> PawKart Clay Promise
               </p>
               <ul className="mt-2 space-y-1.5 text-xs font-semibold text-clay-ink/65">
                 <li className="flex items-center gap-1.5"><Check className="size-3.5 text-clay-green" /> 100% genuine, vet-approved products</li>

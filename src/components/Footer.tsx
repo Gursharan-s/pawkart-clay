@@ -31,7 +31,7 @@ const COLUMNS: { title: string; links: { label: string; to: string }[] }[] = [
   {
     title: "About",
     links: [
-      { label: "About PawKart", to: "/about" },
+      { label: "About PawKart Clay", to: "/about" },
       { label: "Our Story", to: "/about" },
       { label: "Pet Care", to: "/products?tag=puppy" },
       { label: "Blog", to: "/" },
@@ -54,7 +54,7 @@ export function Footer() {
     e.preventDefault();
     if (!email.trim()) return;
     toast.success("You're in! 🐾", {
-      description: "Welcome to the PawKart family. Watch your inbox!",
+      description: "Welcome to the PawKart Clay family. Watch your inbox!",
     });
     setEmail("");
   };
@@ -68,7 +68,7 @@ export function Footer() {
           <div className="relative">
             <p className="text-3xl">🐾</p>
             <h3 className="font-display mt-2 text-2xl font-bold text-white sm:text-3xl">
-              Join The PawKart Family 🐾
+              Join The PawKart Clay Family 🐾
             </h3>
             <p className="mx-auto mt-2 max-w-md text-sm font-medium text-white/85">
               Get pet-care tips, exclusive offers and new product updates.
@@ -105,12 +105,12 @@ export function Footer() {
           <Link to="/" className="flex items-center gap-2.5">
             <img
               src={logo}
-              alt="PawKart"
+              alt="PawKart Clay"
               className="size-12 rounded-2xl clay-surface-sm"
             />
             <span className="flex flex-col leading-none">
               <span className="font-display text-2xl font-bold text-clay-ink">
-                PawKart
+                PawKart <span className="text-clay-orange">Clay</span>
               </span>
               <span className="text-[10px] font-bold uppercase tracking-[0.22em] text-clay-orange">
                 Everything your pet loves
@@ -162,7 +162,7 @@ export function Footer() {
       </div>
 
       <div className="mt-12 border-t border-clay-ink/10 py-6 text-center text-xs font-semibold text-clay-ink/45">
-        © 2026 PawKart. All Rights Reserved. · Made with 🧡 for pets in India
+        © 2026 PawKart Clay. All Rights Reserved. · Made with 🧡 for pets in India
       </div>
     </footer>
   );

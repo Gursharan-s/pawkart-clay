@@ -3,7 +3,7 @@ import type { Product } from "@/data/products";
 import { useQuery } from "convex/react";
 
 /**
- * PawKart product service.
+ * PawKart Clay product service.
  *
  * Version 1 reads through Convex (which seeds the same catalog defined in
  * `src/data/products.ts`). When the Node.js/Express + MongoDB backend lands,

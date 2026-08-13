@@ -193,7 +193,7 @@ export default function Account() {
             </span>
             <div>
               <p className="text-lg font-extrabold text-clay-ink">
-                {user.name ?? "PawKart member"}
+                {user.name ?? "PawKart Clay member"}
               </p>
               <p className="text-sm font-semibold text-clay-ink/55">
                 {user.email ?? "No email on file"}

@@ -494,7 +494,7 @@ function Editorial() {
     <section className="bg-clay-mint/35 py-16 sm:py-20">
       <div className="mx-auto max-w-7xl px-4">
         <SectionHeader
-          eyebrow="The PawKart Journal"
+          eyebrow="The PawKart Clay Journal"
           title="More Than Shopping. It's Pet Parenting."
           subtitle="Real advice from vets, trainers and pawrents who've been there."
         />

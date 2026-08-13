@@ -287,7 +287,7 @@ export const TESTIMONIALS: Testimonial[] = [
     city: "Bengaluru",
     pet: "Persian cat, Simba",
     rating: 5,
-    text: "The litter quality is genuinely next level — no dust, no smell, and Simba approves. PawKart is now my one-stop pet shop.",
+    text: "The litter quality is genuinely next level — no dust, no smell, and Simba approves. PawKart Clay is now my one-stop pet shop.",
   },
   {
     name: "Rohan Iyer",

@@ -1,5 +1,5 @@
 /**
- * PawKart product catalog — single source of truth for sample data.
+ * PawKart Clay product catalog — single source of truth for sample data.
  * Version 1 consumes this via the Convex seed; the same shapes map cleanly
  * onto a Node.js/Express + MongoDB backend in the next version.
  *

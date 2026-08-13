@@ -1,4 +1,4 @@
-# PawKart 🐾 — Everything Your Pet Loves.
+# PawKart Clay 🐾 — Everything Your Pet Loves.
 
 A premium Indian pet e-commerce store for dogs and cats, styled with a warm
 **Claymorphism** theme: soft matte pastels, inflated shadows and plush rounded

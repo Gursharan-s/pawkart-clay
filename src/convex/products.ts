@@ -3,7 +3,7 @@ import { mutation, query } from "./_generated/server";
 import { CATALOG_VERSION, PRODUCTS } from "../data/products";
 
 /**
- * PawKart product catalog API.
+ * PawKart Clay product catalog API.
  * Version 1 serves the static sample catalog through Convex so the store is
  * fully functional end-to-end. The service layer on the frontend
  * (`src/services/products.ts`) is the single swap point for a REST
