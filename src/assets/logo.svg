@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" width="128" height="128">
+  <defs>
+    <linearGradient id="tile" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#fdf6e9"/>
+      <stop offset="1" stop-color="#f6e7c8"/>
+    </linearGradient>
+    <linearGradient id="paw" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#f59b4a"/>
+      <stop offset="1" stop-color="#e97b2a"/>
+    </linearGradient>
+  </defs>
+  <!-- plush clay tile -->
+  <rect x="8" y="8" width="112" height="112" rx="34" fill="url(#tile)"/>
+  <rect x="8" y="8" width="112" height="112" rx="34" fill="none" stroke="#e9cf9f" stroke-width="3"/>
+  <!-- main pad -->
+  <path d="M64 72c-11 0-19.5-8.1-19.5-18.4C44.5 41.3 57.8 29 62.6 29c2.3 0 8.9 4.2 14.9 12 3.4 4.4 6 9.5 6 12.6 0 10.3-8.5 18.4-19.5 18.4z" fill="url(#paw)"/>
+  <!-- toes -->
+  <ellipse cx="34" cy="47" rx="9.6" ry="12.4" transform="rotate(-34 34 47)" fill="url(#paw)"/>
+  <ellipse cx="50" cy="33.5" rx="9.4" ry="12.2" transform="rotate(-8 50 33.5)" fill="url(#paw)"/>
+  <ellipse cx="78" cy="33.5" rx="9.4" ry="12.2" transform="rotate(8 78 33.5)" fill="url(#paw)"/>
+  <ellipse cx="94" cy="47" rx="9.6" ry="12.4" transform="rotate(34 94 47)" fill="url(#paw)"/>
+  <!-- shine -->
+  <ellipse cx="46" cy="24" rx="6" ry="3.4" fill="#ffffff" opacity="0.65" transform="rotate(-24 46 24)"/>
+</svg>

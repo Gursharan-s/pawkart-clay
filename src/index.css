@@ -1,0 +1,217 @@
+/* PawKart — warm Claymorphism theme
+   Tactile, soft, plush surfaces: matte pastels, inflated shadows, big radii. */
+@import url("https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400..700;1,9..144,400..700&family=Nunito+Sans:ital,opsz,wght@0,6..12,300..900;1,6..12,300..900&display=swap");
+@import "tailwindcss";
+@import "tw-animate-css";
+@custom-variant dark (&:is(.dark *));
+
+/* ─── Shadcn mapping (kept) ─────────────────────────────────────────── */
+@theme inline {
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+}
+
+/* ─── Fonts + clay design tokens ────────────────────────────────────── */
+@theme {
+  --font-sans: "Nunito Sans", ui-sans-serif, system-ui, -apple-system, sans-serif;
+  --font-display: "Fraunces", ui-serif, Georgia, serif;
+
+  /* Clay palette */
+  --color-clay-cream: #fbf6ec;
+  --color-clay-sand: #f2e7d2;
+  --color-clay-blush: #fae2d4;
+  --color-clay-mint: #e2efe1;
+  --color-clay-butter: #fbf0cf;
+  --color-clay-sky: #e2edf5;
+  --color-clay-lilac: #ede4f3;
+  --color-clay-peach: #fbe4c9;
+  --color-clay-ink: #35291c;
+  --color-clay-orange: #e97b2a;
+  --color-clay-green: #5c9e63;
+
+  /* Inflated clay shadows */
+  --shadow-clay-sm: 4px 4px 10px rgba(161, 128, 84, 0.16),
+    -3px -3px 8px rgba(255, 255, 255, 0.9);
+  --shadow-clay: 10px 10px 26px rgba(161, 128, 84, 0.2),
+    -8px -8px 20px rgba(255, 255, 255, 0.85);
+  --shadow-clay-lg: 18px 18px 40px rgba(161, 128, 84, 0.26),
+    -12px -12px 28px rgba(255, 255, 255, 0.95);
+  --shadow-clay-inset: inset 5px 5px 10px rgba(161, 128, 84, 0.18),
+    inset -5px -5px 10px rgba(255, 255, 255, 0.8);
+  --shadow-clay-btn: 5px 6px 14px rgba(161, 98, 42, 0.32),
+    -4px -4px 10px rgba(255, 255, 255, 0.85),
+    inset 0 -3px 0 rgba(0, 0, 0, 0.1);
+  --shadow-clay-chip: 4px 4px 10px rgba(161, 128, 84, 0.16),
+    -3px -3px 8px rgba(255, 255, 255, 0.9),
+    inset 0 2px 0 rgba(255, 255, 255, 0.8);
+}
+
+/* ─── Theme values ──────────────────────────────────────────────────── */
+:root {
+  --radius: 1.125rem;
+  --background: oklch(0.965 0.018 84);
+  --foreground: oklch(0.26 0.03 55);
+  --card: oklch(0.99 0.008 84);
+  --card-foreground: oklch(0.26 0.03 55);
+  --popover: oklch(0.99 0.008 84);
+  --popover-foreground: oklch(0.26 0.03 55);
+  --primary: oklch(0.66 0.18 52);
+  --primary-foreground: oklch(0.985 0.015 80);
+  --secondary: oklch(0.925 0.03 80);
+  --secondary-foreground: oklch(0.35 0.04 55);
+  --muted: oklch(0.94 0.022 82);
+  --muted-foreground: oklch(0.55 0.035 60);
+  --accent: oklch(0.9 0.05 72);
+  --accent-foreground: oklch(0.4 0.06 50);
+  --destructive: oklch(0.58 0.2 27);
+  --border: oklch(0.86 0.035 82);
+  --input: oklch(0.86 0.035 82);
+  --ring: oklch(0.66 0.18 52);
+  --chart-1: oklch(0.66 0.18 52);
+  --chart-2: oklch(0.62 0.11 150);
+  --chart-3: oklch(0.55 0.09 250);
+  --chart-4: oklch(0.8 0.12 90);
+  --chart-5: oklch(0.7 0.15 20);
+  --sidebar: oklch(0.97 0.015 84);
+  --sidebar-foreground: oklch(0.26 0.03 55);
+  --sidebar-primary: oklch(0.66 0.18 52);
+  --sidebar-primary-foreground: oklch(0.985 0.015 80);
+  --sidebar-accent: oklch(0.925 0.03 80);
+  --sidebar-accent-foreground: oklch(0.35 0.04 55);
+  --sidebar-border: oklch(0.86 0.035 82);
+  --sidebar-ring: oklch(0.66 0.18 52);
+}
+
+.dark {
+  --background: oklch(0.2 0.02 55);
+  --foreground: oklch(0.93 0.02 84);
+  --card: oklch(0.25 0.025 55);
+  --card-foreground: oklch(0.93 0.02 84);
+  --popover: oklch(0.25 0.025 55);
+  --popover-foreground: oklch(0.93 0.02 84);
+  --primary: oklch(0.7 0.17 55);
+  --primary-foreground: oklch(0.18 0.02 55);
+  --secondary: oklch(0.3 0.03 55);
+  --secondary-foreground: oklch(0.93 0.02 84);
+  --muted: oklch(0.3 0.03 55);
+  --muted-foreground: oklch(0.72 0.02 70);
+  --accent: oklch(0.34 0.05 60);
+  --accent-foreground: oklch(0.93 0.02 84);
+  --destructive: oklch(0.68 0.19 27);
+  --border: oklch(1 0 0 / 12%);
+  --input: oklch(1 0 0 / 14%);
+  --ring: oklch(0.7 0.17 55);
+  --sidebar: oklch(0.22 0.022 55);
+  --sidebar-foreground: oklch(0.93 0.02 84);
+  --sidebar-primary: oklch(0.7 0.17 55);
+  --sidebar-primary-foreground: oklch(0.18 0.02 55);
+  --sidebar-accent: oklch(0.3 0.03 55);
+  --sidebar-accent-foreground: oklch(0.93 0.02 84);
+  --sidebar-border: oklch(1 0 0 / 12%);
+  --sidebar-ring: oklch(0.7 0.17 55);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  html {
+    scroll-behavior: smooth;
+  }
+  body {
+    @apply bg-background text-foreground antialiased;
+    font-feature-settings: "ss01" on;
+  }
+  button:not([disabled]),
+  [role="button"]:not([disabled]) {
+    cursor: pointer;
+  }
+  ::selection {
+    background: oklch(0.9 0.06 70);
+  }
+}
+
+@layer components {
+  /* Tactile clay surface */
+  .clay-surface {
+    box-shadow: var(--shadow-clay);
+  }
+  .clay-surface-sm {
+    box-shadow: var(--shadow-clay-sm);
+  }
+  .clay-pressed {
+    box-shadow: var(--shadow-clay-inset);
+  }
+  .clay-tile {
+    box-shadow: var(--shadow-clay-chip);
+  }
+  /* Big soft primary button */
+  .clay-btn {
+    @apply inline-flex items-center justify-center gap-2 rounded-2xl font-bold tracking-tight transition-all duration-200 select-none;
+    box-shadow: var(--shadow-clay-btn);
+  }
+  .clay-btn:hover {
+    filter: brightness(1.05) saturate(1.05);
+    transform: translateY(-1px);
+  }
+  .clay-btn:active {
+    transform: translateY(2px) scale(0.99);
+    box-shadow: var(--shadow-clay-inset);
+  }
+  /* Hide scrollbars for carousels */
+  .no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+  /* Dotted paw backdrop */
+  .paw-dots {
+    background-image: radial-gradient(
+      oklch(0.66 0.18 52 / 0.14) 1.5px,
+      transparent 1.5px
+    );
+    background-size: 22px 22px;
+  }
+  .clay-stripes {
+    background-image: repeating-linear-gradient(
+      -45deg,
+      oklch(0.66 0.18 52 / 0.07) 0 14px,
+      transparent 14px 28px
+    );
+  }
+}
