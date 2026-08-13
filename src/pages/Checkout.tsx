@@ -1,7 +1,9 @@
 import { useCart } from "@/context";
 import { formatINR } from "@/lib/format";
+import { saveOrderToStorage, type Order } from "@/lib/orders";
 import { cn } from "@/lib/utils";
 import { useAuth } from "@/hooks/use-auth";
+import { useSaveOrder } from "@/services/orders";
 import { AnimatePresence, motion } from "framer-motion";
 import {
   ArrowLeft,
@@ -18,58 +20,6 @@ import {
 import { useMemo, useState } from "react";
 import { Link } from "react-router";
 import { toast } from "sonner";
-
-export interface OrderItem {
-  sku: string;
-  name: string;
-  qty: number;
-  price: number;
-  image: string;
-}
-
-export interface Order {
-  id: string;
-  items: OrderItem[];
-  subtotal: number;
-  discount: number;
-  deliveryFee: number;
-  total: number;
-  address: {
-    name: string;
-    mobile: string;
-    line1: string;
-    city: string;
-    state: string;
-    pincode: string;
-  };
-  paymentMethod: "upi" | "card" | "cod";
-  paymentStatus: "paid" | "cod";
-  status: "Order Placed";
-  createdAt: string;
-}
-
-const ORDERS_KEY = "pawkart:orders:v1";
-
-export function loadOrders(): Order[] {
-  try {
-    const raw = localStorage.getItem(ORDERS_KEY);
-    const parsed = raw ? (JSON.parse(raw) as Order[]) : [];
-    return Array.isArray(parsed) ? parsed : [];
-  } catch {
-    return [];
-  }
-}
-
-export function saveOrder(order: Order) {
-  try {
-    localStorage.setItem(
-      ORDERS_KEY,
-      JSON.stringify([order, ...loadOrders()].slice(0, 30)),
-    );
-  } catch {
-    // ignore
-  }
-}
 
 const INDIAN_STATES = [
   "Andhra Pradesh", "Assam", "Bihar", "Chhattisgarh", "Delhi", "Goa",
@@ -101,6 +51,7 @@ export default function Checkout() {
   const [placing, setPlacing] = useState(false);
   const [placedOrder, setPlacedOrder] = useState<Order | null>(null);
   const [errors, setErrors] = useState<Record<string, string>>({});
+  const saveOrder = useSaveOrder();
 
   const effectiveFee =
     deliveryMode === "express" ? Math.max(deliveryFee, 99) : deliveryFee;
@@ -130,40 +81,61 @@ export default function Checkout() {
     return Object.keys(errs).length === 0;
   };
 
-  const placeOrder = () => {
+  const placeOrder = async () => {
     setPlacing(true);
     // Simulated payment gateway — swap with Razorpay order API here.
-    setTimeout(() => {
-      const order: Order = {
-        id: `PK${Date.now().toString().slice(-8)}`,
-        items: items.map((i) => ({
-          sku: i.sku,
-          name: i.name,
-          qty: i.qty,
-          price: i.price,
-          image: i.image,
-        })),
-        ...summary,
-        address: {
-          name: address.name.trim(),
-          mobile: address.mobile.trim(),
-          line1: address.line1.trim(),
-          city: address.city.trim(),
-          state: address.state,
-          pincode: address.pincode.trim(),
-        },
-        paymentMethod: payment,
-        paymentStatus: payment === "cod" ? "cod" : "paid",
-        status: "Order Placed",
-        createdAt: new Date().toISOString(),
-      };
-      saveOrder(order);
-      setPlacedOrder(order);
-      setStep("confirm");
-      clear();
-      setPlacing(false);
-      toast.success("Order placed successfully! 🎉");
-    }, 1400);
+    await new Promise((resolve) => setTimeout(resolve, 900));
+
+    const order: Order = {
+      id: `PK${Date.now().toString().slice(-8)}`,
+      items: items.map((i) => ({
+        sku: i.sku,
+        name: i.name,
+        qty: i.qty,
+        price: i.price,
+        image: i.image,
+      })),
+      ...summary,
+      address: {
+        name: address.name.trim(),
+        mobile: address.mobile.trim(),
+        line1: address.line1.trim(),
+        city: address.city.trim(),
+        state: address.state,
+        pincode: address.pincode.trim(),
+      },
+      paymentMethod: payment,
+      paymentStatus: payment === "cod" ? "cod" : "paid",
+      status: "Order Placed",
+      createdAt: new Date().toISOString(),
+    };
+
+    // Local mirror first so the order is instantly visible, then persist it
+    // to the user's PawKart Clay account via Convex.
+    saveOrderToStorage(order);
+    try {
+      await saveOrder({
+        items: order.items,
+        subtotal: order.subtotal,
+        discount: order.discount,
+        deliveryFee: order.deliveryFee,
+        total: order.total,
+        address: order.address,
+        paymentMethod: order.paymentMethod,
+        paymentStatus: order.paymentStatus,
+      });
+    } catch (err) {
+      console.warn("Order account sync failed (kept on this device):", err);
+      toast.warning(
+        "Order placed — syncing to your account failed, it's saved on this device.",
+      );
+    }
+
+    setPlacedOrder(order);
+    setStep("confirm");
+    clear();
+    setPlacing(false);
+    toast.success("Order placed successfully! 🎉");
   };
 
   const next = () => {

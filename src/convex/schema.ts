@@ -66,6 +66,41 @@ const schema = defineSchema(
       key: v.string(),
       version: v.number(),
     }).index("by_key", ["key"]),
+
+    // PawKart Clay orders — server-persisted, scoped to the signed-in user
+    orders: defineTable({
+      userId: v.id("users"),
+      orderNumber: v.string(),
+      items: v.array(
+        v.object({
+          sku: v.string(),
+          name: v.string(),
+          qty: v.number(),
+          price: v.number(),
+          image: v.string(),
+        }),
+      ),
+      subtotal: v.number(),
+      discount: v.number(),
+      deliveryFee: v.number(),
+      total: v.number(),
+      address: v.object({
+        name: v.string(),
+        mobile: v.string(),
+        line1: v.string(),
+        city: v.string(),
+        state: v.string(),
+        pincode: v.string(),
+      }),
+      paymentMethod: v.union(
+        v.literal("upi"),
+        v.literal("card"),
+        v.literal("cod"),
+      ),
+      paymentStatus: v.union(v.literal("paid"), v.literal("cod")),
+      status: v.string(), // e.g. "Order Placed" — tracking stages come next
+      createdAt: v.string(), // ISO timestamp, mirrors the client Order shape
+    }).index("by_user", ["userId"]),
   },
   {
     schemaValidation: false,

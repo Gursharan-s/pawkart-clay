@@ -21,17 +21,21 @@ surfaces.
 - **Cart** (`/cart`) — quantity controls, move-to-wishlist, free-delivery
   progress bar (₹999 threshold), order summary, recommendations.
 - **Checkout** (`/checkout`, protected) — address → delivery → payment →
-  confirmation with a simulated gateway (UPI / card / COD). Structured so
-  Razorpay can be swapped in later.
+  confirmation with a simulated gateway (UPI / card / COD). Orders are saved to
+  the user's Convex account (with a localStorage mirror for offline).
+  Structured so Razorpay can be swapped in later.
 - **Account** (`/account`, protected) — profile, order history with a tracking
-  timeline, wishlist and logout.
+  timeline, wishlist and logout. Order history is server-synced and follows
+  the user across devices.
 - **Wishlist** (`/wishlist`) — save items, move them to cart.
 - **Search** — live suggestions in the header, full search on `/products`.
 
-Version 1 stores cart, wishlist, recently-viewed and orders in `localStorage`;
-products and auth live in Convex. The service layer
-(`src/services/products.ts`) is the single swap point for a Node.js/Express +
-MongoDB backend in the next version.
+Orders are persisted to Convex (`src/convex/orders.ts`) and scoped to the
+signed-in user, with a `localStorage` mirror (`src/lib/orders.ts`) for instant
+rendering and offline resilience. Cart, wishlist and recently-viewed live in
+`localStorage`; products and auth live in Convex. The service layers
+(`src/services/products.ts`, `src/services/orders.ts`) are the swap point for
+a Node.js/Express + MongoDB backend in the next version.
 
 ## Run it
 
@@ -62,11 +66,11 @@ src/
   pages/         Landing, Products, ProductDetail, Cart, Checkout, Account…
   layouts/       StoreLayout (header + footer shell)
   hooks/         use-recently-viewed, use-auth
-  services/      products.ts — Convex-backed product API (swap point for REST)
+  services/      products.ts + orders.ts — Convex-backed APIs (swap point for REST)
   context/       cart + wishlist providers (localStorage)
   data/          products.ts — 48-product catalogue (single source of truth)
-  lib/           format (₹), pincode, catalog content data
-  convex/        schema, product queries + seed, auth
+  lib/           format (₹), pincode, catalog content data, order persistence
+  convex/        schema, product queries + seed, orders, auth
 ```
 
 ---

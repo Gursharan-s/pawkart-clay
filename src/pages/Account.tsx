@@ -1,10 +1,11 @@
 import { useAuth } from "@/hooks/use-auth";
 import { useWishlist } from "@/context";
-import { loadOrders, type Order } from "@/pages/Checkout";
+import { loadOrders, toClientOrder, type Order } from "@/lib/orders";
 import { formatINR } from "@/lib/format";
 import { cn } from "@/lib/utils";
+import { useMyOrders } from "@/services/orders";
 import { Heart, LogOut, Package, UserRound } from "lucide-react";
-import { useEffect, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { Link, useNavigate, useSearchParams } from "react-router";
 
 const ORDER_STAGES = [
@@ -119,11 +120,24 @@ export default function Account() {
   const { items: wishlistItems } = useWishlist();
   const navigate = useNavigate();
   const [searchParams, setSearchParams] = useSearchParams();
-  const [orders, setOrders] = useState<Order[]>([]);
+  const [localOrders, setLocalOrders] = useState<Order[]>([]);
+  const serverOrders = useMyOrders();
 
   useEffect(() => {
-    setOrders(loadOrders());
+    setLocalOrders(loadOrders());
   }, []);
+
+  // Server orders win once loaded; the localStorage mirror fills the gap while
+  // loading and covers orders placed before account sync existed (deduped by
+  // order id so nothing shows twice).
+  const orders = useMemo<Order[]>(() => {
+    if (serverOrders === undefined || serverOrders === null) {
+      return localOrders;
+    }
+    const serverList = serverOrders.map(toClientOrder);
+    const seen = new Set(serverList.map((o) => o.id));
+    return [...serverList, ...localOrders.filter((o) => !seen.has(o.id))];
+  }, [serverOrders, localOrders]);
 
   const tab = (searchParams.get("tab") as Tab) ?? "profile";
 
@@ -207,7 +221,10 @@ export default function Account() {
             {[
               { label: "Orders placed", value: orders.length },
               { label: "Wishlist items", value: wishlistItems.length },
-              { label: "Member since", value: "2026" },
+              {
+                label: "Member since",
+                value: new Date(user._creationTime).getFullYear(),
+              },
             ].map((stat) => (
               <div
                 key={stat.label}
@@ -221,8 +238,8 @@ export default function Account() {
             ))}
           </div>
           <p className="mt-5 text-xs font-semibold text-clay-ink/45">
-            Orders and wishlist are synced to this device in version 1 — server
-            sync arrives with the backend in the next version.
+            Orders are synced to your PawKart Clay account, so they follow you
+            across devices. Your wishlist lives on this device for now.
           </p>
         </div>
       )}
