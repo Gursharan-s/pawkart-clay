@@ -192,8 +192,8 @@ function IconButton({
 
 function MegaMenu({ mega }: { mega: NavMega }) {
   return (
-    <div className="absolute left-1/2 top-full z-40 hidden w-[min(760px,92vw)] -translate-x-1/2 pt-3 lg:block">
-      <div className="overflow-hidden rounded-[1.75rem] border border-clay-ink/10 bg-card p-6 opacity-0 shadow-2xl transition-all duration-200 translate-y-2 group-hover/mega:translate-y-0 group-hover/mega:opacity-100 clay-surface">
+    <div className="pointer-events-none absolute left-1/2 top-full z-40 hidden w-[min(760px,92vw)] -translate-x-1/2 pt-3 group-hover/mega:pointer-events-auto lg:block">
+      <div className="pointer-events-none invisible overflow-hidden rounded-[1.75rem] border border-clay-ink/10 bg-card p-6 opacity-0 shadow-2xl transition-all duration-200 translate-y-2 group-hover/mega:visible group-hover/mega:pointer-events-auto group-hover/mega:translate-y-0 group-hover/mega:opacity-100 clay-surface">
         <div className="grid grid-cols-2 gap-x-10 gap-y-6 md:grid-cols-3 xl:grid-cols-5">
           {mega.groups.map((group) => (
             <div key={group.title}>
