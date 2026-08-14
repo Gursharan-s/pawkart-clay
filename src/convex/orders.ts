@@ -29,6 +29,7 @@ const addressValidator = v.object({
 
 export const saveOrder = mutation({
   args: {
+    orderNumber: v.optional(v.string()),
     items: v.array(orderItemValidator),
     subtotal: v.number(),
     discount: v.number(),
@@ -48,11 +49,12 @@ export const saveOrder = mutation({
       throw new Error("Sign in to place an order.");
     }
 
-    const orderNumber = `PK${Date.now().toString().slice(-8)}`;
+    const { orderNumber: customNum, ...orderFields } = args;
+    const orderNumber = customNum ?? `PK${Date.now().toString().slice(-8)}`;
     const id = await ctx.db.insert("orders", {
       userId,
       orderNumber,
-      ...args,
+      ...orderFields,
       status: "Order Placed",
       createdAt: new Date().toISOString(),
     });

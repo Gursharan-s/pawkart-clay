@@ -129,14 +129,26 @@ export default function Account() {
 
   // Server orders win once loaded; the localStorage mirror fills the gap while
   // loading and covers orders placed before account sync existed (deduped by
-  // order id so nothing shows twice).
+  // order id and order fingerprint so nothing shows twice).
   const orders = useMemo<Order[]>(() => {
     if (serverOrders === undefined || serverOrders === null) {
       return localOrders;
     }
     const serverList = serverOrders.map(toClientOrder);
-    const seen = new Set(serverList.map((o) => o.id));
-    return [...serverList, ...localOrders.filter((o) => !seen.has(o.id))];
+    const seenIds = new Set(serverList.map((o) => o.id));
+    const serverFingerprints = new Set(
+      serverList.map(
+        (o) =>
+          `${o.total}_${o.items.map((i) => `${i.sku}:${i.qty}`).sort().join(",")}`,
+      ),
+    );
+    const uniqueLocal = localOrders.filter((o) => {
+      if (seenIds.has(o.id)) return false;
+      const fp = `${o.total}_${o.items.map((i) => `${i.sku}:${i.qty}`).sort().join(",")}`;
+      if (serverFingerprints.has(fp)) return false;
+      return true;
+    });
+    return [...serverList, ...uniqueLocal];
   }, [serverOrders, localOrders]);
 
   const tab = (searchParams.get("tab") as Tab) ?? "profile";

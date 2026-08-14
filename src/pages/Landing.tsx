@@ -110,7 +110,7 @@ function Hero() {
         >
           <div className="relative overflow-hidden rounded-[2.5rem] border-4 border-white clay-surface">
             <img
-              src={HERO_IMAGES.dog}
+              src="https://i.pinimg.com/736x/97/bb/1b/97bb1bb94f4bbd4e4a60835fe0a83ea5.jpg"
               alt="A happy dog enjoying life"
               className="aspect-[4/3.4] w-full object-cover"
             />
@@ -186,7 +186,7 @@ function ShopByPet() {
     {
       label: "Dogs",
       text: "Everything your dog needs.",
-      image: HERO_IMAGES.dog,
+      image: "https://i.pinimg.com/736x/53/dc/50/53dc500c266590faf54b92f64bc1804e.jpg",
       to: "/products?petType=dog",
       tint: "bg-clay-blush",
     },

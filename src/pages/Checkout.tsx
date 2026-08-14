@@ -115,6 +115,7 @@ export default function Checkout() {
     saveOrderToStorage(order);
     try {
       await saveOrder({
+        orderNumber: order.id,
         items: order.items,
         subtotal: order.subtotal,
         discount: order.discount,

@@ -124,7 +124,11 @@ export const PRODUCTS: Product[] = [
     rating: 4.6,
     reviewCount: 1820,
     stock: 120,
-    images: gallery("Dog Food", 8473516),
+    images: [
+      "https://headsupfortails.com/cdn/shop/files/1_3c5835c4-7f1b-48ee-812d-3b090e37ed81.jpg?v=1784034593&width=800",
+      "https://headsupfortails.com/cdn/shop/files/2_b17de3eb-6349-4c34-8372-6a813947c17c.jpg?v=1784034592&width=800",
+      "https://headsupfortails.com/cdn/shop/files/4_f8200d01-79d4-4234-82e4-4720faecf388.jpg?v=1784034593&width=800",
+    ],
     description:
       "India's most loved adult dog food, packed with 100% complete and balanced nutrition. Wholesome chicken and vegetables deliver the protein, vitamins and minerals your adult dog needs every day.",
     highlights: [
@@ -226,7 +230,11 @@ export const PRODUCTS: Product[] = [
     rating: 4.7,
     reviewCount: 780,
     stock: 30,
-    images: gallery("Dog Food", 15275505),
+    images: [
+      "https://headsupfortails.com/cdn/shop/files/9003579008454_01.jpg?v=1743273532&width=800",
+      "https://headsupfortails.com/cdn/shop/files/9003579008454_02.jpg?v=1743273533&width=800",
+      "https://headsupfortails.com/cdn/shop/files/9003579008454_03.jpg?v=1743273533&width=800",
+    ],
     description:
       "Tailored nutrition for puppies up to 15 months. Enriched with DHA and calcium to support brain development, growing bones and a strong immune system during those important first months.",
     highlights: [
@@ -262,7 +270,11 @@ export const PRODUCTS: Product[] = [
     rating: 4.6,
     reviewCount: 1240,
     stock: 96,
-    images: gallery("Dog Treats", 13419673),
+    images: [
+      "https://headsupfortails.com/cdn/shop/files/PedigreeDentastixOralCareDogTreatWeeklyPackForMediumBreed-180.jpg?v=1770807416&width=800",
+      "https://headsupfortails.com/cdn/shop/files/2_copy.jpg?v=1770807445&width=800",
+      "https://headsupfortails.com/cdn/shop/files/3_84b17635-016f-4ad1-b00e-fb7b5e10ab22.jpg?v=1770807416&width=800",
+    ],
     description:
       "The daily dental treat that works like a toothbrush. The patented X-shape reduces tartar build-up by up to 80%, freshens breath and keeps gums healthy — one a day keeps the vet away.",
     highlights: [
@@ -360,7 +372,11 @@ export const PRODUCTS: Product[] = [
     rating: 4.3,
     reviewCount: 280,
     stock: 88,
-    images: gallery("Dog Treats", 8434637),
+    images: [
+      "https://headsupfortails.com/cdn/shop/files/DSC_4319.jpg?v=1757397509&width=800",
+      "https://headsupfortails.com/cdn/shop/files/Artboard2_aef0e6aa-03a1-4ab2-9e8d-9a067c2403d0.jpg?v=1757397509&width=800",
+      "https://headsupfortails.com/cdn/shop/files/Artboard3_7e9c7c67-c3f0-4fe1-bdbd-d50366f5d6e1.jpg?v=1757397509&width=800",
+    ],
     description:
       "Bite-sized, soft training treats that keep tails wagging mid-session. Grain-free and lightly flavoured, so you can reward generously without spoiling dinner.",
     highlights: [
@@ -392,7 +408,11 @@ export const PRODUCTS: Product[] = [
     rating: 4.6,
     reviewCount: 350,
     stock: 37,
-    images: gallery("Dog Treats", 28293418),
+    images: [
+      "https://headsupfortails.com/cdn/shop/files/Happi_Skippi_Vegetarian_Dental_Chew_-_Zest_-_Mint_-_Petite_-_2.5_inch_-_150_g_-_18_Pieces_01.jpg?v=1757396425&width=800",
+      "https://headsupfortails.com/cdn/shop/files/Happi_Skippi_Vegetarian_Dental_Chew_-_Zest_-_Mint_-_Petite_-_2.5_inch_-_150_g_-_18_Pieces_02.jpg?v=1757396425&width=800",
+      "https://headsupfortails.com/cdn/shop/files/Happi_Skippi_Vegetarian_Dental_Chew_-_Zest_-_Mint_-_Petite_-_2.5_inch_-_150_g_-_18_Pieces_03.jpg?v=1757396425&width=800",
+    ],
     description:
       "Long-lasting, grain-free chews that scrub teeth and satisfy the natural urge to chew. Made with easily digestible proteins and no wheat, corn or soy.",
     highlights: [
@@ -491,7 +511,11 @@ export const PRODUCTS: Product[] = [
     rating: 4.5,
     reviewCount: 470,
     stock: 64,
-    images: gallery("Dog Toys", 28532113),
+    images: [
+      "https://headsupfortails.com/cdn/shop/files/DSC_3706_fe01430a-c070-46e5-9b1c-f6f68e7320e4.jpg?v=1757402071&width=800",
+      "https://headsupfortails.com/cdn/shop/files/DSC_3708_6e9c9cc3-9e34-4702-b1d1-60d7ecac4d1b.jpg?v=1757402071&width=800",
+      "https://headsupfortails.com/cdn/shop/files/DSC_3707_09e61e51-4668-47d4-a613-5cc9958b5280.jpg?v=1757402071&width=800",
+    ],
     description:
       "A soft, squeaky bone that triggers every dog's favourite instinct. The gentle squeak keeps pups entertained and the plush cover is kind to furniture and teeth alike.",
     highlights: [
@@ -589,7 +613,11 @@ export const PRODUCTS: Product[] = [
     rating: 4.6,
     reviewCount: 940,
     stock: 130,
-    images: gallery("Dog Accessories", 8030852),
+    images: [
+      "https://headsupfortails.com/cdn/shop/files/DSC_2407.jpg?v=1783504094&width=800",
+      "https://headsupfortails.com/cdn/shop/files/DD2_Collar1.jpg?v=1786526341&width=800",
+      "https://headsupfortails.com/cdn/shop/files/hf_20260709_185727_a5630494-039c-4b96-b08a-b2c1b1ce2ca9.jpg?v=1783921519&width=800",
+    ],
     description:
       "A comfortable, fully adjustable nylon collar with a sturdy quick-release buckle. Soft on the neck, tough on walks, and available in sizes to fit every pup.",
     highlights: [
@@ -720,7 +748,11 @@ export const PRODUCTS: Product[] = [
     rating: 4.4,
     reviewCount: 190,
     stock: 66,
-    images: gallery("Dog Accessories", 12031035),
+    images: [
+      "https://headsupfortails.com/cdn/shop/products/BRUNOHUFTHomeIsWhere_PetName_IsPersonalisedCushion-12inches_30x30cm_FRONTpurple.jpg?v=1757405778&width=800",
+      "https://headsupfortails.com/cdn/shop/products/BRUNOHUFTHomeIsWhere_PetName_IsPersonalisedCushion-12inches_30x30cm_FRONTred.jpg?v=1757405778&width=800",
+      "https://headsupfortails.com/cdn/shop/products/BRUNOHUFTHomeIsWhere_PetName_IsPersonalisedCushion-12inches_30x30cm_FRONTroyalblue.jpg?v=1757405778&width=800",
+    ],
     description:
       "A shiny stainless-steel tag engraved with your pet's name and your number. Peace of mind for every walk, and a little style on every collar.",
     highlights: [
@@ -754,7 +786,11 @@ export const PRODUCTS: Product[] = [
     rating: 4.8,
     reviewCount: 540,
     stock: 22,
-    images: gallery("Dog Beds", 16684384),
+    images: [
+      "https://cdn.shopify.com/s/files/1/0086/0795/7054/files/DSC_8165copy_360x.jpg?v=1762766275",
+      "https://headsupfortails.com/cdn/shop/files/DSC_8177.jpg?v=1762766374&width=800",
+      "https://headsupfortails.com/cdn/shop/files/DSC_8182.jpg?v=1762766374&width=800",
+    ],
     description:
       "Memory-foam support for older dogs and big breeds. The thick egg-crate foam relieves joint pressure while the plush bolster gives your dog a cosy place to rest their head.",
     highlights: [
@@ -788,7 +824,11 @@ export const PRODUCTS: Product[] = [
     rating: 4.7,
     reviewCount: 320,
     stock: 35,
-    images: gallery("Dog Beds", 38503241),
+    images: [
+      "https://headsupfortails.com/cdn/shop/files/BED7_92938e59-a38c-416e-927a-c383d518957b.jpg?v=1784204063&width=800",
+      "https://headsupfortails.com/cdn/shop/files/Catbed1_b0625a90-fcac-4e97-adaa-7bd5931c98b9.jpg?v=1784204062&width=800",
+      "https://headsupfortails.com/cdn/shop/files/Catbed2.jpg?v=1784204069&width=800",
+    ],
     description:
       "A donut-style bed that cradles dogs who love to curl up. Ultra-soft plush on the outside, cloud-like filling inside — the definition of a good nap.",
     highlights: [
@@ -822,7 +862,7 @@ export const PRODUCTS: Product[] = [
     rating: 4.4,
     reviewCount: 210,
     stock: 70,
-    images: gallery("Dog Beds", 4445456),
+    images: ["https://cdn.shopify.com/s/files/1/0086/0795/7054/files/DSC_8165copy_360x.jpg?v=1762766275"],
     description:
       "A low-profile, waterproof mat for crates, balconies and car rides. Wipes clean in seconds and keeps every surface protected from muddy paws and spills.",
     highlights: [
@@ -854,7 +894,11 @@ export const PRODUCTS: Product[] = [
     rating: 4.3,
     reviewCount: 180,
     stock: 48,
-    images: gallery("Dog Beds", 31308251),
+    images: [
+      "https://headsupfortails.com/cdn/shop/products/TrixieCoolingMatForDogs-Blue_d759af17-38c7-4cd8-9497-5d1acc36b8c2.jpg?v=1757406183&width=800",
+      "https://headsupfortails.com/cdn/shop/files/28685_PDP-02.jpg?v=1757406183&width=800",
+      "https://headsupfortails.com/cdn/shop/files/coolingmatusage.jpg?v=1757406184&width=800",
+    ],
     description:
       "Pressure-activated cooling gel that stays 5-8°C cooler than room temperature — no water, no refrigeration needed. The summer essential for panting pups.",
     highlights: [
@@ -886,7 +930,11 @@ export const PRODUCTS: Product[] = [
     rating: 4.5,
     reviewCount: 150,
     stock: 40,
-    images: gallery("Dog Beds", 16245084),
+    images: [
+      "https://headsupfortails.com/cdn/shop/files/DSC_1306.jpg?v=1783315055&width=800",
+      "https://headsupfortails.com/cdn/shop/files/hf_20260607_172101_8e4b8cbc-ef39-4140-bdc4-89bd58b3c1ca.jpg?v=1783327484&width=800",
+      "https://headsupfortails.com/cdn/shop/files/DSC_1302_591c2b3a-bfc7-4c60-bb9c-a63a9b6e8228.jpg?v=1783315056&width=800",
+    ],
     description:
       "A roll-up, foldable travel bed that fits in any suitcase. Your pet gets a familiar, comfy spot at the hotel, the park or grandma's house.",
     highlights: [
@@ -920,7 +968,11 @@ export const PRODUCTS: Product[] = [
     rating: 4.6,
     reviewCount: 830,
     stock: 105,
-    images: gallery("Dog Grooming", 19021958),
+    images: [
+      "https://headsupfortails.com/cdn/shop/files/ItchRelifeOatmeal_1_-1.jpg?v=1757404855&width=800",
+      "https://headsupfortails.com/cdn/shop/files/HUFTShampooinfographics-11.jpg?v=1757404855&width=800",
+      "https://headsupfortails.com/cdn/shop/files/HUFTShampooinfographics-12.jpg?v=1757404855&width=800",
+    ],
     description:
       "A gentle, soap-free shampoo with colloidal oatmeal and aloe vera. Calms itchy skin, leaves a soft, fresh-smelling coat, and is safe for frequent baths.",
     highlights: [
@@ -984,7 +1036,11 @@ export const PRODUCTS: Product[] = [
     rating: 4.3,
     reviewCount: 240,
     stock: 60,
-    images: gallery("Dog Grooming", 12943750),
+    images: [
+      "https://headsupfortails.com/cdn/shop/products/M-PetsCleaningWipesforDogs_Cats-Body_Paws-80Pcs_75190a73-283f-44b3-a87c-410fd636f727.jpg?v=1757406474&width=800",
+      "https://headsupfortails.com/cdn/shop/products/M-PetsCleaningWipesforDogs_Cats-Body_Paws-80Pcs-1.jpg?v=1757406474&width=800",
+      "https://headsupfortails.com/cdn/shop/products/VirbacEpioticEarCleanserforDogsandCats-100ml.jpg?v=1757406661&width=800",
+    ],
     description:
       "A silicone paw-cleaning cup that turns muddy paws into clean paws in 10 seconds. Soft bristles gently scrub dirt, mud and germs — no more post-walk cleanups.",
     highlights: [
@@ -1016,7 +1072,11 @@ export const PRODUCTS: Product[] = [
     rating: 4.4,
     reviewCount: 390,
     stock: 90,
-    images: gallery("Dog Grooming", 12612095),
+    images: [
+      "https://headsupfortails.com/cdn/shop/products/DSC_0292-Edit.jpg?v=1757406829&width=800",
+      "https://headsupfortails.com/cdn/shop/products/DSC_0446-Edit.jpg?v=1757406829&width=800",
+      "https://headsupfortails.com/cdn/shop/products/M-PetsNailClipperforPets-Black_Blue.jpg?v=1757406443&width=800",
+    ],
     description:
       "A guillotine-style nail clipper with sharp stainless blades and a safety guard. Trim nails confidently at home and save every trip to the salon.",
     highlights: [
@@ -1082,7 +1142,11 @@ export const PRODUCTS: Product[] = [
     rating: 4.5,
     reviewCount: 1120,
     stock: 140,
-    images: gallery("Cat Food", 19457801),
+    images: [
+      "https://headsupfortails.com/cdn/shop/files/01_41947222-0fe3-4674-bc85-cc982b6a8f20.jpg?v=1779170258&width=800",
+      "https://headsupfortails.com/cdn/shop/files/5_3cdd725f-5a29-4878-b7cd-8d0bfcd36afa.jpg?v=1779170259&width=800",
+      "https://headsupfortails.com/cdn/shop/files/17_0db5cd2f-8d31-4a30-ae16-dbe6025c73fd.jpg?v=1779170258&width=800",
+    ],
     description:
       "Complete and balanced nutrition for adult cats 1-7 years. Made with real chicken and 41 essential nutrients to support vitality, digestion and a glossy coat.",
     highlights: [
@@ -1116,7 +1180,11 @@ export const PRODUCTS: Product[] = [
     rating: 4.7,
     reviewCount: 420,
     stock: 26,
-    images: gallery("Cat Food", 19457798),
+    images: [
+      "https://headsupfortails.com/cdn/shop/files/FOPcopy_dd2740db-1864-4a0e-a9c0-e76ee352c5ee.jpg?v=1766577884&width=800",
+      "https://headsupfortails.com/cdn/shop/products/PersianAdult-10.png?v=1766577884&width=800",
+      "https://headsupfortails.com/cdn/shop/products/PersianAdult-8.png?v=1766577884&width=800",
+    ],
     description:
       "Specially formulated for Persian cats' long coats and flat faces. Enriched with omega fatty acids and easily chewable kibble tailored to the Persian jaw.",
     highlights: [
@@ -1184,7 +1252,11 @@ export const PRODUCTS: Product[] = [
     rating: 4.6,
     reviewCount: 380,
     stock: 74,
-    images: gallery("Cat Food", 12467776),
+    images: [
+      "https://headsupfortails.com/cdn/shop/files/HUFTCB3913_1.jpg?v=1786094353&width=800",
+      "https://headsupfortails.com/cdn/shop/files/Artboard3_735ece6a-3907-43fb-82a9-889682be98b5.jpg?v=1757396542&width=800",
+      "https://headsupfortails.com/cdn/shop/files/Artboard3_7227e12e-c616-4067-8fcb-cd2cacc9a624.jpg?v=1757396500&width=800",
+    ],
     description:
       "Small, easy-to-chew kibble packed with DHA and calcium for growing kittens up to 12 months. Supports brain development, strong bones and playful energy.",
     highlights: [
@@ -1218,7 +1290,11 @@ export const PRODUCTS: Product[] = [
     rating: 4.8,
     reviewCount: 210,
     stock: 16,
-    images: gallery("Cat Food", 31309076),
+    images: [
+      "https://headsupfortails.com/cdn/shop/files/ADULTCAT.jpg?v=1757396465&width=800",
+      "https://headsupfortails.com/cdn/shop/files/628678734159_4.jpg?v=1757396466&width=800",
+      "https://headsupfortails.com/cdn/shop/files/628678734159_6.jpg?v=1757396465&width=800",
+    ],
     description:
       "A grain-free recipe with 70% animal proteins for obligate carnivores. Gentle on sensitive stomachs and rich in taurine for heart and vision health.",
     highlights: [
@@ -1254,7 +1330,11 @@ export const PRODUCTS: Product[] = [
     rating: 4.5,
     reviewCount: 640,
     stock: 118,
-    images: gallery("Cat Treats", 32365399),
+    images: [
+      "https://headsupfortails.com/cdn/shop/files/4902397840879.jpg?v=1757398915&width=800",
+      "https://headsupfortails.com/cdn/shop/files/2_39.jpg?v=1757398915&width=800",
+      "https://headsupfortails.com/cdn/shop/products/61DSo-WckeL._SL1000.jpg?v=1757398915&width=800",
+    ],
     description:
       "Squeeze-tube creamy treats cats go crazy for. A lickable snack perfect for bonding, training and hiding medication — zero mess, maximum love.",
     highlights: [
@@ -1352,7 +1432,11 @@ export const PRODUCTS: Product[] = [
     rating: 4.5,
     reviewCount: 720,
     stock: 105,
-    images: gallery("Cat Toys", 16260949),
+    images: [
+      "https://headsupfortails.com/cdn/shop/files/4011905480404_2.jpg?v=1757402778&width=800",
+      "https://headsupfortails.com/cdn/shop/files/4011905480404_3.jpg?v=1757402778&width=800",
+      "https://headsupfortails.com/cdn/shop/files/4011905480404_8.jpg?v=1757402778&width=800",
+    ],
     description:
       "A plush mouse stuffed with premium catnip that turns even lazy cats into hunters. The crinkle body and long tail trigger natural prey instincts.",
     highlights: [
@@ -1384,7 +1468,11 @@ export const PRODUCTS: Product[] = [
     rating: 4.4,
     reviewCount: 510,
     stock: 78,
-    images: gallery("Cat Toys", 18188786),
+    images: [
+      "https://headsupfortails.com/cdn/shop/files/HUFTTY1042-1.jpg?v=1762108740&width=800",
+      "https://headsupfortails.com/cdn/shop/files/HUFTTY1042-2.jpg?v=1762108740&width=800",
+      "https://headsupfortails.com/cdn/shop/files/HUFTTY1042-4.jpg?v=1762108740&width=800",
+    ],
     description:
       "A feather wand that mimics bird flight and gets your cat leaping, pouncing and purring. The #1 way to burn indoor cat energy in 10 minutes a day.",
     highlights: [
@@ -1482,7 +1570,11 @@ export const PRODUCTS: Product[] = [
     rating: 4.6,
     reviewCount: 1380,
     stock: 160,
-    images: gallery("Cat Essentials", 13705497),
+    images: [
+      "https://headsupfortails.com/cdn/shop/files/Lavender_Scented_-_5_kg.jpg?v=1780642667&width=800",
+      "https://headsupfortails.com/cdn/shop/files/DSC_3853_988b2522-f98f-4e60-a81c-b9933138bf51.jpg?v=1768561163&width=800",
+      "https://headsupfortails.com/cdn/shop/files/DSC_3871_286a46c6-fa86-42b4-819b-bdfd36b14dd6.jpg?v=1768561163&width=800",
+    ],
     description:
       "Ultra-clumping bentonite litter that forms tight, scoopable clumps for 10x easier cleaning. 99% dust-free and 2x more absorbent — happier cats, cleaner homes.",
     highlights: [
@@ -1547,7 +1639,11 @@ export const PRODUCTS: Product[] = [
     rating: 4.7,
     reviewCount: 610,
     stock: 30,
-    images: gallery("Cat Essentials", 10292639),
+    images: [
+      "https://headsupfortails.com/cdn/shop/files/DSC_5043.jpg?v=1757407364&width=800",
+      "https://headsupfortails.com/cdn/shop/files/DSC_5040.jpg?v=1757407364&width=800",
+      "https://headsupfortails.com/cdn/shop/files/Size_1_1.jpg?v=1757407364&width=800",
+    ],
     description:
       "A sturdy sisal scratching post that saves your sofa and satisfies your cat's scratching instinct. Dense sisal rope, wobble-free base and a bonus dangling toy.",
     highlights: [
@@ -1579,7 +1675,11 @@ export const PRODUCTS: Product[] = [
     rating: 4.6,
     reviewCount: 330,
     stock: 41,
-    images: gallery("Cat Essentials", 20562240),
+    images: [
+      "https://headsupfortails.com/cdn/shop/files/DSC_1413.jpg?v=1782721876&width=800",
+      "https://headsupfortails.com/cdn/shop/files/hf_20260607_172945_a0b054b3-a33e-4cf9-a914-bc88b62b2ea0.jpg?v=1782733587&width=800",
+      "https://headsupfortails.com/cdn/shop/files/DSC_1425_841ed5b6-67cb-44c2-a870-394424ae7398.jpg?v=1782721876&width=800",
+    ],
     description:
       "A cosy, enclosed-style bed with a hooded rim that cats find irresistible for naps. Warm, soft and private — the 20-hour-a-day napper's dream.",
     highlights: [
@@ -1611,7 +1711,11 @@ export const PRODUCTS: Product[] = [
     rating: 4.5,
     reviewCount: 420,
     stock: 75,
-    images: gallery("Cat Essentials", 8881548),
+    images: [
+      "https://headsupfortails.com/cdn/shop/products/HUFTCutestCollectionSlurpKittenBowl-Pink.jpg?v=1757405396&width=800",
+      "https://headsupfortails.com/cdn/shop/products/DSC_9608-Edit.jpg?v=1757405396&width=800",
+      "https://headsupfortails.com/cdn/shop/products/IMG_8425_cf7bd807-60f9-4e4b-b861-460d9cf3df4b.jpg?v=1757405397&width=800",
+    ],
     description:
       "A heavy, non-tip stainless-steel bowl that won't harbour bacteria like plastic. Anti-slip base, wide shallow design that protects whiskers, and dishwasher safe.",
     highlights: [
@@ -1643,7 +1747,11 @@ export const PRODUCTS: Product[] = [
     rating: 4.7,
     reviewCount: 580,
     stock: 25,
-    images: gallery("Cat Essentials", 7732727),
+    images: [
+      "https://headsupfortails.com/cdn/shop/products/TrixieCapri1Dog_CatCarrier-19X13X12inches-Holdsupto6kg_230ee9ba-c12d-42b7-b1b5-cee51d99c802.jpg?v=1757406264&width=800",
+      "https://headsupfortails.com/cdn/shop/products/TrixieCapri1Dog_CatTransportBox-GreyLilac-19X13X12inch-Holdsupto8kg_1090x_bbd1f700-2e55-40ef-aedc-26d78f787083.jpg?v=1757406265&width=800",
+      "https://headsupfortails.com/cdn/shop/products/TrixieCapri1Dog_CatCarrier-19X13X12inches-Holdsupto6kg_fe174350-1b3e-4704-8c50-e82a4ede04fc.jpg?v=1757406265&width=800",
+    ],
     description:
       "A sturdy, airline-approved carrier with soft mesh windows and a washable fleece mat. Top and front openings make vet visits calm and stress-free.",
     highlights: [
